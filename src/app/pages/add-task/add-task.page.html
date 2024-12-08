@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar Tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (submit)="addTask()">
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input [(ngModel)]="title" name="title" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo</ion-label>
+      <ion-select [(ngModel)]="type" name="type">
+        <ion-select-option value="Trabajo">Trabajo</ion-select-option>
+        <ion-select-option value="Casa">Casa</ion-select-option>
+        <ion-select-option value="Negocios">Negocios</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="full" type="submit">Guardar</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Tareas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/add-task">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h2>Tareas Pendientes</h2>
+        <ion-list>
+          <ion-item *ngFor="let task of pendingTasks" (click)="viewTaskDetails(task.id)">
+            <ion-label>
+              <h3>{{ task.title }}</h3>
+              <p>{{ task.type }}</p>
+            </ion-label>
+            <ion-button (click)="completeTask(task.id)" slot="end" fill="clear" color="success">
+              <ion-icon slot="icon-only" name="checkmark-done-outline"></ion-icon>
+            </ion-button>
+            <ion-button (click)="deleteTask(task.id)" slot="end" fill="clear" color="danger">
+              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h2>Tareas Completadas</h2>
+        <ion-list>
+          <ion-item *ngFor="let task of completedTasks" (click)="viewTaskDetails(task.id)">
+            <ion-label>
+              <h3>{{ task.title }}</h3>
+              <p>{{ task.type }}</p>
+            </ion-label>
+            <ion-button (click)="completeTask(task.id)" slot="end" fill="clear" color="warning">
+              <ion-icon slot="icon-only" name="arrow-undo-outline"></ion-icon>
+            </ion-button>
+            <ion-button (click)="deleteTask(task.id)" slot="end" fill="clear" color="danger">
+              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

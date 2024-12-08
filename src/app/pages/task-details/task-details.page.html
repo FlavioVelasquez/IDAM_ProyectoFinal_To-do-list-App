@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles de la Tarea</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="task">
+    <ion-card-header>
+      <ion-card-title>{{ task.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Descripción:</strong> {{ task.description }}</p>
+      <p><strong>Tipo:</strong> {{ task.type }}</p>
+      <p><strong>Estado:</strong> {{ task.completed ? 'Completada' : 'Pendiente' }}</p>
+      <ion-button expand="block" (click)="toggleCompletion()">
+        {{ task.completed ? 'Marcar como Pendiente' : 'Marcar como Completada' }}
+      </ion-button>
+      <ion-button expand="block" color="danger" (click)="deleteTask()">
+        Eliminar Tarea
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="medium" (click)="goBack()">Volver</ion-button>
+</ion-content>
